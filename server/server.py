@@ -6,6 +6,10 @@ CORS(app)
 
 util.load_saved_artifacts() #force calling util.py  -> load_artifacts()
 
+@app.route('/')
+def home():
+    return "Welcome to the Bangalore Home Price Prediction API!"
+    
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
     response = jsonify({
