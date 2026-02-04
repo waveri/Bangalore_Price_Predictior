@@ -50,7 +50,7 @@ function onClickedEstimatePrice() {
 
 
   //var url = "http://127.0.0.1:5000/predict_home_price";
-  var url = "https://bangalore-home-prices-api.onrender.com";
+  var url = "https://bangalore-home-prices-api.onrender.com/predict_home_price";
 
   $.post(url, {
     total_sqft: parseFloat(sqft.value),
@@ -76,7 +76,7 @@ function onClickedEstimatePrice() {
 function onPageLoad() {
   console.log("document loaded");
   //var url = "http://127.0.0.1:5000/get_location_names";
-  var url = "https://bangalore-home-prices-api.onrender.com";
+  var url = "https://bangalore-home-prices-api.onrender.com/get_location_names";
 
   // Clear dropdown first to show loading state
   var uiLocations = document.getElementById("uiLocations");
