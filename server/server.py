@@ -4,6 +4,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+util.load_saved_artifacts() #force calling util.py  -> load_artifacts()
+
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
     response = jsonify({
@@ -37,9 +39,7 @@ def predict_home_price():
     return response
 
 if __name__ == "__main__":
+    #gunicorn is gonna ignore this if block, as we are runing on Render which uses gunicorn server not our local pc server.
     print('Starting Python Flask Server For Home Price Prediction...')
-    # --- THIS IS THE CRITICAL FIX ---
-    # Load the model and location artifacts before running the app
     util.load_saved_artifacts()
-    # --------------------------------
     app.run()
